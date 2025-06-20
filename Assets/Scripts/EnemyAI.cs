@@ -66,12 +66,40 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
     public int health = 10;
     public int damage = 1;
-
+    public float attackRange = 2f;
+    public float attackCooldown = 1f;
+    private float attackTimer = 0f;
     private void Update()
     {
         if (target != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, 2f * Time.deltaTime);
+        }
+
+    
+        {
+            if (target != null)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, target.position, 2f * Time.deltaTime);
+
+                float distance = Vector3.Distance(transform.position, target.position);
+
+                // Verificar si el jugador está en rango de ataque
+                if (distance <= attackRange)
+                {
+                    attackTimer -= Time.deltaTime;
+
+                    if (attackTimer <= 0f)
+                    {
+                        PlayerHealth player = target.GetComponent<PlayerHealth>();
+                        if (player != null)
+                        {
+                            player.TakeDamage(damage);
+                            attackTimer = attackCooldown;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -92,4 +120,5 @@ public class EnemyAI : MonoBehaviour
             barricade.TakeDamage(damage);
         }
     }
+   
 }
