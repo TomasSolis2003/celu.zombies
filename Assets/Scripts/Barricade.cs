@@ -259,7 +259,7 @@ using UnityEngine;
 public class Barricade : MonoBehaviour
 {
     // Vida máxima de la barricada
-    public int maxHealth = 20;
+    public int maxHealth = 100;
     // Vida actual de la barricada
     public int currentHealth;
 
