@@ -296,7 +296,7 @@ MonoBehaviour:
   health: 20
   damage: 2
   attackRange: 2
-  attackCooldown: 1
+  attackCooldown: 3
 --- !u!114 &5265695172679059863
 MonoBehaviour:
   m_ObjectHideFlags: 0

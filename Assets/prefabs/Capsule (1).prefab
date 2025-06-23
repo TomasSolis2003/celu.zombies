@@ -104,8 +104,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1093756, y: 1, z: 0.76615345}
+  m_Center: {x: -0.19439118, y: 0, z: 0.00069751457}
 --- !u!114 &6236700743351661263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,12 +130,12 @@ GameObject:
   - component: {fileID: 2459603661941018372}
   - component: {fileID: 5851916512555113599}
   - component: {fileID: 731455600422702609}
-  - component: {fileID: 2343182059607073568}
   - component: {fileID: 2151841931965267898}
   - component: {fileID: 767925430416335306}
   - component: {fileID: -6617789152963448846}
   - component: {fileID: -1671689028793041736}
   - component: {fileID: -4418847896611356068}
+  - component: {fileID: 7027171718311684268}
   m_Layer: 0
   m_Name: Capsule (1)
   m_TagString: Enemigo
@@ -209,29 +209,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2343182059607073568
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8476698655251997498}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &2151841931965267898
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -323,3 +300,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc934b6ae621cc344890485952d91ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &7027171718311684268
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476698655251997498}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.2948627, y: 17.457264, z: 1}
+  m_Center: {x: -0.10056519, y: 7.728633, z: 0}

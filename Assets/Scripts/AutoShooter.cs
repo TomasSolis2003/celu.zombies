@@ -1,8 +1,8 @@
-using UnityEngine;
-
+﻿using UnityEngine;
+using System.Collections;
 public class AutoShooter : MonoBehaviour
 {
-    public float detectionRadius = 10f;         // Radio de detecci�n
+    public float detectionRadius = 10f;         // Radio de detección
     public float fireRate = 0.5f;               // Tiempo entre disparos
     public GameObject projectilePrefab;         // Prefab del proyectil
     public Transform firePoint;                 // Punto desde el cual se dispara
@@ -14,7 +14,7 @@ public class AutoShooter : MonoBehaviour
     {
         fireCooldown -= Time.deltaTime;
 
-        // Buscar enemigo m�s cercano dentro del radio
+        // Buscar enemigo más cercano dentro del radio
         currentTarget = GetClosestEnemy();
 
         // Si hay un enemigo y se puede disparar
@@ -24,7 +24,22 @@ public class AutoShooter : MonoBehaviour
             fireCooldown = fireRate;
         }
     }
+    public void SetFireRate(float newRate, float duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(TemporaryFireRate(newRate, duration));
+    }
 
+    private IEnumerator TemporaryFireRate(float newRate, float duration)
+    {
+        float originalRate = fireRate;
+        fireRate = newRate;
+
+        yield return new WaitForSeconds(duration);
+
+        fireRate = 0.3f; // Valor predeterminado al terminar el power-up
+        Debug.Log("⏱️ Power-Up de fuego rápido finalizado");
+    }
     Transform GetClosestEnemy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemigo");
@@ -61,7 +76,7 @@ public class AutoShooter : MonoBehaviour
         }
     }
 
-    // Dibujar el radio de detecci�n en el editor
+    // Dibujar el radio de detección en el editor
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
