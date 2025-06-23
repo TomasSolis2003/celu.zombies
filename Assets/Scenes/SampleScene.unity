@@ -4036,7 +4036,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCenter: {x: 0, y: 0, z: 37.47}
   spawnSize: {x: 96.6, y: 0, z: 20}
-  enemyPrefabs: []
+  enemyPrefabs:
+  - {fileID: 5221757462430544318, guid: abcfbe3ebcfda5f4e95ac83fc58e8aa9, type: 3}
+  - {fileID: 4960907371158600901, guid: dc2c1857e1e012f44b80ebbc91a957bc, type: 3}
   spawnAmount: 5
   spawnInterval: 15
   repeatSpawning: 1
@@ -4120,7 +4122,7 @@ Transform:
   m_GameObject: {fileID: 1827874437}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.461507, y: 2.7403998, z: 45.849335}
+  m_LocalPosition: {x: 11.4, y: 2.7403998, z: 45.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
