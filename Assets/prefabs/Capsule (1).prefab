@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: -1671689028793041736}
   - component: {fileID: -4418847896611356068}
   - component: {fileID: 7027171718311684268}
+  - component: {fileID: 5727272899454321122}
   m_Layer: 0
   m_Name: Capsule (1)
   m_TagString: Enemigo
@@ -279,12 +280,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8476698655251997498}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be0a08305a2e6db448df8803264d7f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  maxHealth: 10
   damage: 1
   attackRange: 2
   attackCooldown: 1
@@ -321,3 +323,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.2948627, y: 17.457264, z: 1}
   m_Center: {x: -0.10056519, y: 7.728633, z: 0}
+--- !u!114 &5727272899454321122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476698655251997498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e5d703d65ca66449a84d2a2d90bbf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 10
+  attackRadius: 2
+  damage: 5
+  attackCooldown: 2
+  maxHealth: 10

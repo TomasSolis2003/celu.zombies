@@ -31,8 +31,9 @@ public class FireRatePowerUp : MonoBehaviour
         Debug.Log("💤 Power-Up de velocidad finalizado");
         Destroy(gameObject); // Destruir el objeto del power-up tras usarlo
     }
-}
-*/
+}*/
+
+
 using UnityEngine;
 using System.Collections;
 
@@ -55,3 +56,33 @@ public class FireRatePowerUp : MonoBehaviour
         }
     }
 }
+
+/*using UnityEngine;
+
+public class FireRatePowerUp : MonoBehaviour
+{
+    public float boostedFireRate = 0.1f; // Disparo rápido
+    public float duration = 5f;          // Duración del efecto
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            AutoShooter shooter = other.GetComponent<AutoShooter>();
+            if (shooter != null)
+            {
+                shooter.SetFireRate(boostedFireRate, duration);
+                Debug.Log("🔥 Power-Up de fuego rápido activado");
+
+                // Buscar y mostrar el mensaje
+                MensajePowerUpUI mensajeUI = FindObjectOfType<MensajePowerUpUI>();
+                if (mensajeUI != null)
+                {
+                    mensajeUI.MostrarContador("VELOCIDAD DE DISPARO", duration);
+                }
+
+                Destroy(gameObject);
+            }
+        }
+    }
+}*/

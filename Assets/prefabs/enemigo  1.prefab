@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 5174511554172755738}
   - component: {fileID: -1501959824047639385}
   m_Layer: 0
-  m_Name: 'enemigo '
+  m_Name: enemigo  1
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4960907371158600901}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be0a08305a2e6db448df8803264d7f24, type: 3}
   m_Name: 
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4960907371158600901}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9e5d703d65ca66449a84d2a2d90bbf4, type: 3}
   m_Name: 
