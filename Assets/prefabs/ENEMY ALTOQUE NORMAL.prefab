@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 5174511554172755738}
   - component: {fileID: -1501959824047639385}
   m_Layer: 0
-  m_Name: enemigo  1
+  m_Name: ENEMY ALTOQUE NORMAL
   m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
