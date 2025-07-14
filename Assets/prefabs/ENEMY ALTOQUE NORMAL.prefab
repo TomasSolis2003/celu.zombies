@@ -269,7 +269,7 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   damage: 1
-  attackRange: 2
+  attackRange: 4
   attackCooldown: 1
 --- !u!54 &5089182801319973637
 Rigidbody:

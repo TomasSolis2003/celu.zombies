@@ -296,7 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   maxHealth: 10
-  damage: 2
+  damage: 10
   attackRange: 2
   attackCooldown: 3
 --- !u!114 &5265695172679059863

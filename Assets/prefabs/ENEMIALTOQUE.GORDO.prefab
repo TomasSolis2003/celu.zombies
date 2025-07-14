@@ -341,6 +341,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRadius: 25
   attackRadius: 2
-  damage: 5
+  damage: 10
   attackCooldown: 2
-  maxHealth: 10
+  maxHealth: 20

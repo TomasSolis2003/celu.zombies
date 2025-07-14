@@ -314,6 +314,11 @@ public class MovimientoSecuencialConPuertas : MonoBehaviour
     [Header("Jugador")]
     public string tagJugador = "Player";
 
+    [Header("Barrera Final (fuera del tren)")]
+    public Transform barreraFinal;
+    public Vector3 posicionFinalBarrera;
+    public float velocidadBarrera = 2f;
+
     [Header("Puertas a controlar")]
     public List<Transform> puertas; // objetos que cambian de escala (eje Y)
     public float alturaAbajo = 0.1f;
@@ -371,6 +376,12 @@ public class MovimientoSecuencialConPuertas : MonoBehaviour
         // 🔽 Bajar puertas y dejarlas abiertas para siempre
         yield return StartCoroutine(CambiarAlturaPuertas(alturaAbajo));
 
+        // 🔽 Bajar barrera final
+        if (barreraFinal != null)
+        {
+            StartCoroutine(BajarBarreraFinal());
+        }
+
         Debug.Log("🚉 Estación final alcanzada. Puertas bajadas permanentemente.");
     }
 
@@ -426,4 +437,21 @@ public class MovimientoSecuencialConPuertas : MonoBehaviour
             }
         }
     }
+    IEnumerator BajarBarreraFinal()
+    {
+        Debug.Log("🔓 Bajando barrera final...");
+
+        while (Vector3.Distance(barreraFinal.position, posicionFinalBarrera) > 0.05f)
+        {
+            barreraFinal.position = Vector3.MoveTowards(
+                barreraFinal.position,
+                posicionFinalBarrera,
+                velocidadBarrera * Time.deltaTime
+            );
+            yield return null;
+        }
+
+        Debug.Log("✅ Barrera final bajada completamente.");
+    }
+
 }

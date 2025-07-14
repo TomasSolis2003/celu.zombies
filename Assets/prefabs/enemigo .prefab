@@ -325,5 +325,5 @@ MonoBehaviour:
   detectionRadius: 25
   attackRadius: 2
   damage: 5
-  attackCooldown: 2
+  attackCooldown: 1
   maxHealth: 10

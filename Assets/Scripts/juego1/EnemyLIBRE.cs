@@ -1,11 +1,11 @@
-
+﻿
 /*using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyLIBRE : MonoBehaviour
 {
-    [Header("Detecci�n")]
+    [Header("Detección")]
     public float detectionRadius = 10f;
     public float attackRadius = 2f;
 
@@ -35,7 +35,7 @@ public class EnemyLIBRE : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se encontr� un objeto con el tag 'Player'.");
+            Debug.LogWarning("No se encontró un objeto con el tag 'Player'.");
         }
     }
 
@@ -66,7 +66,7 @@ public class EnemyLIBRE : MonoBehaviour
     {
         if (playerHealth != null)
         {
-            playerHealth.TakeDamage(damage); // Coincide con el m�todo del jugador
+            playerHealth.TakeDamage(damage); // Coincide con el método del jugador
         }
     }
 
@@ -95,13 +95,13 @@ public class EnemyLIBRE : MonoBehaviour
     }
 }
 */
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyLIBRE : MonoBehaviour
 {
-    [Header("Detecci�n")]
+    [Header("Detección")]
     public float detectionRadius = 10f;
     public float attackRadius = 2f;
 
@@ -131,7 +131,7 @@ public class EnemyLIBRE : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se encontr� un objeto con el tag 'Player'.");
+            Debug.LogWarning("No se encontró un objeto con el tag 'Player'.");
         }
     }
 
@@ -155,6 +155,130 @@ public class EnemyLIBRE : MonoBehaviour
             {
                 agent.ResetPath();
             }
+        }
+    }
+
+    void Attack()
+    {
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(damage);
+        }
+    }
+
+    public bool TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+            return true;
+        }
+
+        return false;
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
+    }
+}
+*/
+using UnityEngine;
+using UnityEngine.AI;
+
+[RequireComponent(typeof(NavMeshAgent))]
+public class EnemyLIBRE : MonoBehaviour
+{
+    [Header("Detección")]
+    public float detectionRadius = 10f;
+    public float attackRadius = 2f;
+
+    [Header("Combate")]
+    public int damage = 5;
+    public float attackCooldown = 2f;
+    private float lastAttackTime;
+
+    [Header("Vida")]
+    public int maxHealth = 10;
+    private int currentHealth;
+
+    private NavMeshAgent agent;
+    private Transform target;
+    private PlayerHealth playerHealth;
+
+    private bool navMeshErrorShown = false; // ← bandera para evitar spam del error
+
+    void Start()
+    {
+        currentHealth = maxHealth;
+        agent = GetComponent<NavMeshAgent>();
+
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            target = playerObj.transform;
+            playerHealth = playerObj.GetComponent<PlayerHealth>();
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró un objeto con el tag 'Player'.");
+        }
+    }
+
+    void Update()
+    {
+        if (target != null)
+        {
+            float distance = Vector3.Distance(transform.position, target.position);
+
+            if (distance <= detectionRadius)
+            {
+                if (agent.isOnNavMesh)
+                {
+                    agent.SetDestination(target.position);
+
+                    if (distance <= attackRadius && Time.time >= lastAttackTime + attackCooldown)
+                    {
+                        Attack();
+                        lastAttackTime = Time.time;
+                    }
+                }
+                else
+                {
+                    ShowNavMeshErrorOnce();
+                }
+            }
+            else
+            {
+                if (agent.isOnNavMesh)
+                {
+                    agent.ResetPath();
+                }
+                else
+                {
+                    ShowNavMeshErrorOnce();
+                }
+            }
+        }
+    }
+
+    void ShowNavMeshErrorOnce()
+    {
+        if (!navMeshErrorShown)
+        {
+            Debug.LogWarning("No se pudo mover: el agente no está en una NavMesh.");
+            navMeshErrorShown = true;
         }
     }
 
