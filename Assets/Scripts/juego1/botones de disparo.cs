@@ -391,25 +391,6 @@ public class botonesdedisparo : MonoBehaviour
         }
     }
 
-    /*void UpdateIndicatorPosition(bool forceUpdate = false)
-     {
-         Transform target = GetCurrentTarget();
-
-         if (target != null)
-         {
-             Vector3 indicatorPos = target.position + Vector3.up * 2f;
-
-             if (currentIndicator == null && targetIndicatorPrefab != null)
-             {
-                 currentIndicator = Instantiate(targetIndicatorPrefab, indicatorPos, Quaternion.identity);
-             }
-             else if (currentIndicator != null && (forceUpdate || Vector3.Distance(currentIndicator.transform.position, indicatorPos) > 0.01f))
-             {
-                 currentIndicator.transform.position = indicatorPos;
-             }
-         }
-     }*/
-
     public void SetFireRate(float newRate, float duration)
     {
         StopAllCoroutines();
